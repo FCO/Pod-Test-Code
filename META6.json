@@ -1,0 +1,25 @@
+{
+  "auth": "cpan:FCO",
+  "authors": [
+    "Fernando Correa de Oliveira"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "blah blah blah",
+  "license": "Artistic-2.0",
+  "name": "Pod::Test::Code",
+  "perl": "6.d",
+  "provides": {
+    "Pod::Test::Code": "lib/Pod/Test/Code.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}
