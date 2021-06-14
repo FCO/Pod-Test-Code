@@ -26,21 +26,24 @@ is 1, 1, "This seems to be working";
 ```
 
 ```raku
-note "bla";
+note "bla"; # Pod is using:
+            # =begin code :lives-ok("testing lives ok") :lang<raku>
 ```
 
 ```raku
-die "bla";
+die "bla"; # Pod is using:
+           # =begin code :dies-ok("testing dies ok") :lang<raku>
 ```
 
 ```raku
-note "bla";
+note "bla"; # Pod is using:
+            # =begin code :subtest("blablabla") :lang<raku>
 ```
 
 DESCRIPTION
 ===========
 
-Pod::Test::Code is ...
+Pod::Test::Code is a way to test your pod's code
 
 AUTHOR
 ======
