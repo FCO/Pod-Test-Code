@@ -1,4 +1,4 @@
-unit class Pod::Test::Code:ver<0.0.1>:auth<cpan:FCO>;
+unit class Pod::Test::Code:ver<0.0.2>:auth<cpan:FCO>;
 use Module::Pod;
 use JSON::Fast;
 

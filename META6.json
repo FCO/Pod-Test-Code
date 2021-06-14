@@ -21,11 +21,11 @@
   ],
   "source-url": "https://github.com/FCO/Pod-Test-Code.git",
   "tags": [
-      "pod",
-      "pod6",
-      "test"
+    "pod",
+    "pod6",
+    "test"
   ],
   "test-depends": [
   ],
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
