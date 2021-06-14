@@ -1,7 +1,9 @@
+[![Actions Status](https://github.com/FCO/Pod-Test-Code/workflows/test/badge.svg)](https://github.com/FCO/Pod-Test-Code/actions)
+
 NAME
 ====
 
-Pod::Test::Code - blah blah blah
+Pod::Test::Code - Tests code blocks from pod
 
 SYNOPSIS
 ========
@@ -11,11 +13,15 @@ is 1, 1, "This seems to be working";
 ```
 
 ```raku
-say "bla";
+note "bla";
 ```
 
 ```raku
 die "bla";
+```
+
+```raku
+note "bla";
 ```
 
 DESCRIPTION

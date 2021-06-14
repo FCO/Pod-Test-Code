@@ -1,0 +1,2 @@
+use Pod::Test::Code;
+test-code-snippets "Pod::Test::Code";

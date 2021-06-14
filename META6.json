@@ -6,8 +6,11 @@
   "build-depends": [
   ],
   "depends": [
+    "JSON::Fast",
+    "Module::Pod",
+    "Test::Output"
   ],
-  "description": "blah blah blah",
+  "description": "Tests code blocks from pod",
   "license": "Artistic-2.0",
   "name": "Pod::Test::Code",
   "perl": "6.d",
@@ -16,7 +19,7 @@
   },
   "resources": [
   ],
-  "source-url": "",
+  "source-url": "https://github.com/FCO/Pod-Test-Code.git",
   "tags": [
   ],
   "test-depends": [
