@@ -116,7 +116,7 @@ test-code-snippets "My::Module::To::Be::Tested";
 
 =end code
 
-On your docs:
+On your docs (please, take a look at L<this pod|https://github.com/FCO/Pod-Test-Code/blob/main/lib/Pod/Test/Code.rakumod#L121-L147>):
 
 =begin code :lang<raku>
 

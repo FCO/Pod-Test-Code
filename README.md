@@ -19,7 +19,7 @@ test-code-snippets; # It will test all code blocks from all modules
 test-code-snippets "My::Module::To::Be::Tested";
 ```
 
-On your docs:
+On your docs (please, take a look at [this pod](https://github.com/FCO/Pod-Test-Code/blob/main/lib/Pod/Test/Code.rakumod#L121-L147)):
 
 ```raku
 is 1, 1, "This seems to be working"; # Pod is using:
