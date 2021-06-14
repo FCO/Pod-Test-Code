@@ -29,7 +29,10 @@ multi test-code-snippets(Str $module) is export {
 
 sub test-code-snippets-from-pod(%pod) is export {
     my %tests = do for %pod.kv -> $mod, @pod {
-        my @code = get-code-nodes(@pod).grep: { (.config<lang> // "").lc eq one(<raku perl6>) };
+        my @code = get-code-nodes(@pod).grep: {
+            (.config<lang> // "").lc eq one(<raku perl6>)
+            && !.config<ignore>
+        };
         @code = @code.map: -> $node {
             do given $node.config {
                 when *.<output> {
@@ -99,6 +102,21 @@ sub test-code-snippets-from-pod(%pod) is export {
 Pod::Test::Code - Tests code blocks from pod
 
 =head1 SYNOPSIS
+
+=begin code :lang<raku> :ignore
+
+# Your test:
+use Pod::Test::Code;
+test-code-snippets; # It will test all code blocks from all modules
+                    # declared as `provides` on your META6.json
+
+# or
+
+test-code-snippets "My::Module::To::Be::Tested";
+
+=end code
+
+On your docs:
 
 =begin code :lang<raku>
 
