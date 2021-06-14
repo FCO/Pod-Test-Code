@@ -22,7 +22,8 @@ test-code-snippets "My::Module::To::Be::Tested";
 On your docs:
 
 ```raku
-is 1, 1, "This seems to be working";
+is 1, 1, "This seems to be working"; # Pod is using:
+                                     # =begin code :lang<raku>
 ```
 
 ```raku

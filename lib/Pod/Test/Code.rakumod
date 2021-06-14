@@ -120,7 +120,8 @@ On your docs:
 
 =begin code :lang<raku>
 
-is 1, 1, "This seems to be working";
+is 1, 1, "This seems to be working"; # Pod is using:
+                                     # =begin code :lang<raku>
 
 =end code
 
