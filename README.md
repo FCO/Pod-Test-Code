@@ -9,6 +9,19 @@ SYNOPSIS
 ========
 
 ```raku
+# Your test:
+use Pod::Test::Code;
+test-code-snippets; # It will test all code blocks from all modules
+                    # declared as `provides` on your META6.json
+
+# or
+
+test-code-snippets "My::Module::To::Be::Tested";
+```
+
+On your docs:
+
+```raku
 is 1, 1, "This seems to be working";
 ```
 
