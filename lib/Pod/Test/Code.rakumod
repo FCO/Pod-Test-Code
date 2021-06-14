@@ -126,25 +126,28 @@ is 1, 1, "This seems to be working";
 
 =begin code :lives-ok("testing lives ok") :lang<raku>
 
-note "bla";
+note "bla"; # Pod is using:
+            # =begin code :lives-ok("testing lives ok") :lang<raku>
 
 =end code
 
 =begin code :dies-ok("testing dies ok") :lang<raku>
 
-die "bla";
+die "bla"; # Pod is using:
+           # =begin code :dies-ok("testing dies ok") :lang<raku>
 
 =end code
 
 =begin code :subtest("blablabla") :lang<raku>
 
-note "bla";
+note "bla"; # Pod is using:
+            # =begin code :subtest("blablabla") :lang<raku>
 
 =end code
 
 =head1 DESCRIPTION
 
-Pod::Test::Code is ...
+Pod::Test::Code is a way to test your pod's code
 
 =head1 AUTHOR
 
