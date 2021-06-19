@@ -41,6 +41,14 @@ note "bla"; # Pod is using:
             # =begin code :subtest("blablabla") :lang<raku>
 ```
 
+```json
+{ "bla": "ble" }
+```
+
+```raku
+is "test.json".IO.slurp.chomp, q|{ "bla": "ble" }|;
+```
+
 DESCRIPTION
 ===========
 

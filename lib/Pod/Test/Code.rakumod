@@ -28,11 +28,18 @@ multi test-code-snippets(Str $module) is export {
 }
 
 sub test-code-snippets-from-pod(%pod) is export {
+    chdir $*TMPDIR;
     my %tests = do for %pod.kv -> $mod, @pod {
-        my @code = get-code-nodes(@pod).grep: {
+        my @c = get-code-nodes(@pod);
+        @c.map: {
+            next unless .config<file>:exists && !.config<ignore>;
+            my $file = $*CWD.add: .config<file> // "tmp-file";
+            $file.spurt: :close, .contents.join: "";
+        }
+        my @code = @c.grep: {
             (.config<lang> // "").lc eq one(<raku perl6>)
             && !.config<ignore>
-        };
+        }
         @code = @code.map: -> $node {
             do given $node.config {
                 when *.<output> {
@@ -144,6 +151,14 @@ die "bla"; # Pod is using:
 note "bla"; # Pod is using:
             # =begin code :subtest("blablabla") :lang<raku>
 
+=end code
+
+=begin code :file<test.json> :lang<json>
+{ "bla": "ble" }
+=end code
+
+=begin code :lang<raku>
+is "test.json".IO.slurp.chomp, q|{ "bla": "ble" }|;
 =end code
 
 =head1 DESCRIPTION
