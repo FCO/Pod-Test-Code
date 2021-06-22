@@ -1,6 +1,7 @@
 unit class Pod::Test::Code:ver<0.0.3>:auth<cpan:FCO>;
 use Module::Pod;
 use JSON::Fast;
+use Test::Output;
 
 multi get-code-nodes($) { [] }
 
@@ -43,13 +44,26 @@ sub test-code-snippets-from-pod(%pod) is export {
         @code = @code.map: -> $node {
             do given $node.config {
                 when *.<output> {
-                    my $output-rx = .<output> || /"#" \s* OUTPUT \s* ":" \s* (.*?) $/;
+                    my $output-rx = do if .<output> === True {
+                        rx/"#" \s* OUTPUT \s* ":" \s* (.* $$)/
+                    } else {
+                        .<output>.EVAL
+                    }
                     my $content = $node.contents.join: "";
-                    my $out = $0 if $content.match: $output-rx;
+                    my $out = "";
+                    if $content ~~ $output-rx {
+                        $out = $_ with $0
+                    }
+                    $out = do if $out ~~ Positional {
+                        $out.map(~*).join: ""
+                    } else {
+                        ~$out
+                    }
+                    $out .= raku;
                     qq:to/END/;
                     output-is -> \{
                         { $node.contents.join: "" }
-                    \}, "$out", "testing output";
+                    \}, $out, "testing output";
                     END
                 }
                 when *.<lives-ok> {
@@ -159,6 +173,21 @@ note "bla"; # Pod is using:
 
 =begin code :lang<raku>
 is "test.json".IO.slurp.chomp, q|{ "bla": "ble" }|;
+=end code
+
+=begin code :output :lang<raku>
+print 42 # OUTPUT: 42
+=end code
+
+=begin code :output('rx/"# OUTPUT:" \n [ ^^ <.ws> "# " ( .*? \n ) <.ws> ]*/') :lang<raku>
+say 42;
+say 13;
+say 3.14;
+
+# OUTPUT:
+# 42
+# 13
+# 3.14
 =end code
 
 =head1 DESCRIPTION

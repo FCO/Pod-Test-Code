@@ -1,6 +1,7 @@
 Revision history for Pod-Test-Code
 
 {{$NEXT}}
+    - fix output test
 
 0.0.3  2021-06-19T21:43:05+01:00
     - add option to define files
