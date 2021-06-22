@@ -49,16 +49,20 @@ note "bla"; # Pod is using:
 is "test.json".IO.slurp.chomp, q|{ "bla": "ble" }|;
 ```
 
-    say 42 # OUTPUT: 42
+```raku
+print 42 # OUTPUT: 42
+```
 
-    say 42;
-    say 13;
-    say 3.14;
+```raku
+say 42;
+say 13;
+say 3.14;
 
-    # OUTPUT:
-    # 42
-    # 13
-    # 3.14
+# OUTPUT:
+# 42
+# 13
+# 3.14
+```
 
 DESCRIPTION
 ===========
