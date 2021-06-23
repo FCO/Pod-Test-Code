@@ -59,7 +59,7 @@ sub test-code-snippets-from-pod(%pod) is export {
                     } else {
                         ~$out
                     }
-                    $out = $out.subst(/\n/, Str.nl-out, :g).raku;
+                    $out = $out.subst(/\n/, $?NL, :g).raku;
                     qq:to/END/;
                     output-is -> \{
                         { $node.contents.join: "" }
