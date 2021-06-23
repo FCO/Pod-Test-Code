@@ -59,8 +59,9 @@ sub test-code-snippets-from-pod(%pod) is export {
                     } else {
                         ~$out
                     }
-                    $out = $out.subst(/\n/, $?NL, :g).raku;
+                    $out .= raku;
                     qq:to/END/;
+                    \$*OUT.nl-out = "\\n";
                     output-is -> \{
                         { $node.contents.join: "" }
                     \}, $out, "testing output";
