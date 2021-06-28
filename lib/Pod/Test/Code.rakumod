@@ -59,12 +59,24 @@ sub test-code-snippets-from-pod(%pod) is export {
                     } else {
                         ~$out
                     }
-                    $out .= raku;
+                    $out = $out.lines.Array.raku;
                     qq:to/END/;
-                    \$*OUT.nl-out = "\\n";
-                    output-is -> \{
+                    subtest -> \{
+                        my \$out = $out;
+                        sub say(+@data) \{
+                            for @data \{
+                                my \$o = \$out.shift;
+                                is \$_, \$o, "say \$_"
+                            }
+                        \}
+                        sub print(+@data) \{
+                            for @data \{
+                                my \$o = \$out.shift;
+                                is \$_, \$o, "print \$_"
+                            }
+                        \}
                         { $node.contents.join: "" }
-                    \}, $out, "testing output";
+                    \}, "testing output";
                     END
                 }
                 when *.<lives-ok> {
