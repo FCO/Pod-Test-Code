@@ -60,6 +60,7 @@ sub test-code-snippets-from-pod(%pod) is export {
                         ~$out
                     }
                     $out = $out.lines.Array.raku;
+                    # TODO: Find a good way to do that
                     qq:to/END/;
                     subtest -> \{
                         my \$out = $out;
