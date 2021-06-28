@@ -1,6 +1,8 @@
 Revision history for Pod-Test-Code
 
 {{$NEXT}}
+
+0.0.5  2021-06-28T19:21:02+01:00
     - work around to make it work on windows, not final solution
     - fix windows (I hope)
 
